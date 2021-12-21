@@ -1,23 +1,23 @@
 @font-face {
     font-family: 'Gotham Rounded';
-    src: url('fonts/GothamRoundedBold_21016.woff2') format(woff2),
-    url('fonts/GothamRoundedBold_21016.woff') format(woff);
+    src: url('fonts/GothamRoundedBold_21016.woff2') format('woff2'),
+    url('fonts/GothamRoundedBold_21016.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gotham Rounded';
-    src: url('fonts/GothamRoundedLight_21016.woff2') format(woff2),
-    url('fonts/GothamRoundedLight_21016.woff') format(woff);
+    src: url('fonts/GothamRoundedLight_21016.woff2') format('woff2'),
+    url('fonts/GothamRoundedLight_21016.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gotham Rounded';
-    src: url('fonts/GothamRoundedBook_21016.woff2') format(woff2),
-    url('fonts/GothamRoundedBook_21016.woff') format(woff);
+    src: url('fonts/GothamRoundedBook_21016.woff2') format('woff2'),
+    url('fonts/GothamRoundedBook_21016.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -33,7 +33,23 @@ body {
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
     padding: 0 40px;
-    grid-template-areas: ". content content content content ."
+    grid-template-areas: ". content content content content .";
+}
+
+.grid-video {
+    margin: 50px;
+    align-items: center;
+    grid-template-areas: "video video video benefits benefits benefits";
+}
+
+.grid-video video {
+    grid-area: video;
+    width: 100%;
+    max-width: 900px;
+}
+
+.grid-benefit-detail {
+    margin-top: 4rem;
 }
 
 .content {
@@ -85,7 +101,7 @@ body {
     background-position: bottom left;
     background-size: cover;
     position: relative;
-    z-index: 0;    
+    z-index: 1;    
 }
 
 .light-header-divider {
@@ -131,4 +147,138 @@ body {
 
 .email-form button:hover, .email-form button:focus {
     background-color: #333;
+}
+
+.benefits-section {
+    grid-area: benefits;
+    margin-left: 3rem;
+    justify-self: flex-start;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.benefit img {
+    height: 3rem;
+    margin-right: 2rem;
+}
+
+.benefit-detail {
+    grid-column: span 2;
+    margin: 2 rem;
+}
+
+.benefit-detail-title {
+    text-align: center;
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.benefit-detail-text {
+    font-size: 1.5rem;
+    color: #444;
+    font-weight: lighter;
+}
+
+@media (max-width: 1000px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "content";
+    }
+
+    .grid-video {
+        grid-auto-columns: 1fr;
+        grid-template-areas: "video" "benefits";
+    }
+
+    .grid-video video {
+        justify-self: center;
+    }
+
+    .grid-benefit-detail {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .benefits-section {
+        margin-top: 2rem;
+        margin-left: 0;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    .grid-benefit-detail {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .email-form {
+        flex-direction: column;
+    }
+
+    .email-form button{
+        max-width: initial;
+        width: 100%;
+    }
+    
+    .email-form input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .benefit {
+        font-size: 2rem;
+    }
+
+    .benefit img {
+        height: 2rem;
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .brand-name {
+        display: none;
+    }
+
+    .logo {
+        margin-top: 1rem;
+    }
+
+    .email-form {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    .benefit {
+        font-size: 1.25rem;
+    }
+
+    .benefit-image {
+        height: 1.25rem;
+        margin-right: .5rem;
+    }
+
+    .benefit-detail-title {
+        font-size: 1.25rem;
+    }
+
+    .benefit-detail-text {
+        font-size: 1.15rem;
+    }
+
+    .benefit-detail {
+        margin: 1rem;
+    }
+
+    .grid-benefit-detail {
+        margin-top: 1rem;
+    }
 }
